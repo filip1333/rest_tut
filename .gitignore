@@ -361,3 +361,5 @@ editor.xml
 Pipfile
 vcs.xml
 vim_settings.xml
+debugdump.txt
+pip3

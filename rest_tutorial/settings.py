@@ -9,10 +9,15 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import django.contrib
+import sys
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from optparse import OptionParser
+
+from django.conf import settings
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -25,7 +30,7 @@ SECRET_KEY = '4%5tfnyr-2#olf+9*!se423^#@)k1teg_gu5n9tw@-*o5%9%xt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tuto.apps.TutoConfig',
+    'common.apps.TutoConfig',
     'rest_framework',
     'snippets.apps.SnippetsConfig',
     'simplejwt'
@@ -58,8 +63,7 @@ ROOT_URLCONF = 'rest_tutorial.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

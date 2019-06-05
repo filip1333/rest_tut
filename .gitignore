@@ -365,3 +365,5 @@ vim_settings.xml
 debugdump.txt
 pip3
 .idea/dictionaries/
+rest_tutorial/__pycache__/
+snippets/__pycache__/

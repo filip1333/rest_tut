@@ -368,3 +368,4 @@ pip3
 rest_tutorial/__pycache__/
 snippets/__pycache__/
 common/__pycache__/
+/snippets/migrations/__pycache__/

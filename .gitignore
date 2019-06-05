@@ -367,3 +367,4 @@ pip3
 .idea/dictionaries/
 rest_tutorial/__pycache__/
 snippets/__pycache__/
+common/__pycache__/

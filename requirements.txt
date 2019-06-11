@@ -1,3 +1,4 @@
+djangorestframework-jwt
 astroid==2.2.5
 autopep8==1.4.4
 certifi==2019.3.9

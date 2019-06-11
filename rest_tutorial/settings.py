@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'common.apps.TutoConfig',
     'rest_framework',
     'snippets.apps.SnippetsConfig',
-    'jwt'
+    'jwt',
 ]
 
 MIDDLEWARE = [
@@ -131,10 +131,14 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
+    'PAGE_SIZE': 10
 }

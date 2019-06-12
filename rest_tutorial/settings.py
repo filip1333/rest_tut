@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+import datetime
+
 import django.contrib
 import sys
 import os
@@ -129,6 +131,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.IsAdminUser',
@@ -141,4 +145,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'PAGE_SIZE': 10
+}
+
+JWT_AUTH = {
+
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+
 }

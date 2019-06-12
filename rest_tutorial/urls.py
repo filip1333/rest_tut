@@ -1,11 +1,12 @@
 from django.conf.urls import include, url
-from rest_framework.schemas import get_schema_view
+from django.urls import path
 from rest_framework.documentation import include_docs_urls
+from rest_framework.schemas import get_schema_view
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework_jwt.views import refresh_jwt_token
 from rest_framework_jwt.views import verify_jwt_token
 
-
+schema_view = get_schema_view(title='Pastebin API')
 API_TITLE = 'Pastebin API'
 API_DESCRIPTION = 'A Web API for creating and viewing highlighted code snippets.'
 schema_view = get_schema_view(title=API_TITLE)
@@ -18,5 +19,6 @@ urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^api-token-refresh/', refresh_jwt_token),
     url(r'^api-token-verify/', verify_jwt_token),
+    path('schema/', schema_view),
 
 ]

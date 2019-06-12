@@ -1,4 +1,3 @@
-
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from snippets.models import Snippet
@@ -13,9 +12,9 @@ class SnippetSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'id', 'highlight', 'owner', 'title', 'code', 'linenos', 'language', 'style')
 
 
-class UserSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name='user-detail', source='profile',)
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    snippets = serializers.HyperlinkedRelatedField(many=True, view_name='snippet-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'url', 'snippets')
+        fields = ('url', 'id', 'username', 'snippets')
